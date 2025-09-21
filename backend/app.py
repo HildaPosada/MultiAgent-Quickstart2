@@ -16,12 +16,12 @@ try:
     from solders.keypair import Keypair
     from solders.pubkey import Pubkey
     from solders.system_program import TransferParams, transfer
-    from solders.transaction import Transaction
+    from solana.transaction import Transaction
     from solana.rpc.async_api import AsyncClient
     from solana.rpc.commitment import Confirmed
     SOLANA_ENABLED = True
-except ImportError:
-    print("⚠️ Solana SDK not available - payment features will be disabled")
+except ImportError as e:
+    print(f"⚠️ Solana SDK not available - payment features will be disabled: {str(e)}")
     SOLANA_ENABLED = False
 
 # Import our enhanced marketplace with Coral integration
@@ -33,6 +33,8 @@ app = FastAPI(
     description="Rent specialized AI agents with Solana payments powered by Coral Protocol",
     version="2.0.0"
 )
+
+print("🚀 Starting Agent Marketplace with Coral Protocol...")
 
 # -------------------
 # Setup and Configuration
