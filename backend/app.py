@@ -277,15 +277,11 @@ if __name__ == "__main__":
     os.makedirs("templates", exist_ok=True)
     os.makedirs("static", exist_ok=True)
     print("🌊 Agent Marketplace with Coral Protocol starting...")
-    print("🏪 API Server:               http://0.0.0.0:8080")
+    print("🏪 Frontend (Vite/React):    http://localhost:8080")
+    print("⚙️  Backend (FastAPI):       http://localhost:8081")
     print("🔌 Coral Server:             http://localhost:5555")
     print("🎯 Ready for hackathon demo with real Coral integration + WebSockets + Solana Devnet payments!")
-    uvicorn.run(
-        app,
-        host="0.0.0.0",  # Listen on all interfaces
-        port=8080,       # Use port 8080
-        reload=True      # Enable auto-reload for development
-    )
+    uvicorn.run(app, host="0.0.0.0", port=8081)
 
 
 
