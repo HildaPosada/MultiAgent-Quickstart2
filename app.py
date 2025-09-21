@@ -4,7 +4,7 @@ import requests
 st.title("MultiAgent Quickstart2 - Backend Connection Demo")
 
 # Replace with your actual backend URL
-BACKEND_URL = "http://localhost:8000/"  # Change to public URL if available
+BACKEND_URL = "https://multi-agent-quickstart2-duyi.vercel.app/"  # Public Vercel backend URL
 
 st.write("Fetching data from FastAPI backend...")
 
