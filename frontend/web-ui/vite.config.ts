@@ -10,7 +10,12 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     fs: {
-      allow: ["./client", "./shared"],
+      allow: [
+        ".", // allow project root
+        "./client",
+        "./shared",
+        path.resolve(__dirname) // absolute path to this frontend/web-ui folder
+      ],
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
     },
   },
