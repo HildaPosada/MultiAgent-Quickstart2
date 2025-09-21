@@ -1,0 +1,14 @@
+{
+  "customizations": {
+    "codespaces": {
+      "ports": [
+        {
+          "port": 8080,
+          "visibility": "public",
+          "protocol": "http",
+          "onAutoForward": "openBrowser"
+        }
+      ]
+    }
+  }
+}
