@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -35,6 +35,18 @@ app = FastAPI(
 )
 
 print("🚀 Starting Agent Marketplace with Coral Protocol...")
+
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
+    try:
+        agents = await marketplace.list_agents()
+        return templates.TemplateResponse(
+            "index.html",
+            {"request": request, "agents": agents}
+        )
+    except Exception as e:
+        print(f"Error serving index page: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 # -------------------
 # Setup and Configuration
