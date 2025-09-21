@@ -1,4 +1,5 @@
 {
+  "name": "MultiAgent-Quickstart2",
   "customizations": {
     "codespaces": {
       "ports": [
@@ -6,7 +7,15 @@
           "port": 8080,
           "visibility": "public",
           "protocol": "http",
-          "onAutoForward": "openBrowser"
+          "onAutoForward": "notify",
+          "label": "Frontend"
+        },
+        {
+          "port": 8081,
+          "visibility": "public",
+          "protocol": "http",
+          "onAutoForward": "notify",
+          "label": "Backend API"
         }
       ]
     }
