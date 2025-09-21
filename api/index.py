@@ -5,6 +5,8 @@ from fastapi.templating import Jinja2Templates
 import os
 from pathlib import Path
 
+from vercel_fastapi import VercelFastAPI
+
 app = FastAPI()
 
 # Basic response for the root endpoint
@@ -15,6 +17,9 @@ async def root():
         "message": "Agent Marketplace API is running",
         "version": "2.0.0"
     }
+
+# Vercel handler
+handler = VercelFastAPI(app)
 
 # Health check endpoint
 @app.get("/health")
