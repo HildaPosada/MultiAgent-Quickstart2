@@ -19,34 +19,6 @@ This project demonstrates how specialized AI agents can be discovered, rented, a
 * **Modular Agent Design** → Simple to extend with new agents via YAML/Python
 * **Frontend + Backend** → FastAPI backend with modern UI
 
-## 🎯 Judging Criteria Alignment
-
-1. **Innovation & Creativity** ⭐⭐⭐⭐⭐
-   - First marketplace to integrate Coral Protocol with Solana payments
-   - Real-time agent coordination and workflow execution
-   - Modular design for easy extension
-
-2. **Technical Implementation** ⭐⭐⭐⭐⭐
-   - Full-stack application with FastAPI backend
-   - Real blockchain integration on Solana Devnet
-   - WebSocket support for live updates
-   - Clean architecture and code organization
-
-3. **Market Potential** ⭐⭐⭐⭐⭐
-   - Addresses growing need for specialized AI agents
-   - Built on production-ready technologies
-   - Clear monetization path through agent rentals
-
-4. **User Experience** ⭐⭐⭐⭐
-   - Clean and intuitive interface
-   - Real-time status updates
-   - Easy agent discovery and rental process
-
-5. **Presentation** ⭐⭐⭐⭐⭐
-   - Professional documentation
-   - Clear code structure
-   - Example usage and API documentation
-
 ## 🚀 Features
 
 - FastAPI-based backend server
@@ -156,13 +128,6 @@ curl http://localhost:8081/health
 * **Integrated Mode**: Works with Coral Server (port 5555)
 * **Standalone Mode**: Runs independently if Coral is unavailable
 
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
-
-## 📝 License
-
-This project is licensed under the terms of the MIT license.
 
 ## 🙏 Acknowledgments
 
