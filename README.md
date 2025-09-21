@@ -1,6 +1,8 @@
 # MultiAgent-Quickstart2
 
-A comprehensive agent marketplace platform that integrates with the Coral Protocol, providing a scalable infrastructure for AI agents.
+> 🏆 Project submission for the [Internet of Agents Hackathon](https://lablab.ai/event/internet-of-agents) on lablab.ai
+
+A comprehensive agent marketplace platform that integrates with the Coral Protocol, providing a scalable infrastructure for AI agents. This project aims to demonstrate the power of agent-based systems and their ability to collaborate and interact in a decentralized marketplace environment.
 
 ## 🚀 Features
 
