@@ -1,0 +1,16 @@
+id: search
+name: Search Agent
+description: Comprehensive web search and market research agent
+price_sol: 0.01
+price_usd: 2.00
+capabilities:
+  - Web search
+  - Market research
+  - Competitor analysis
+category: Research
+owner: marketplace
+rating: 4.8
+total_uses: 1250
+avg_processing_time: 2.5
+success_rate: 0.95
+icon: 🔍

@@ -1,0 +1,16 @@
+id: content
+name: Content Generation Agent
+description: AI-powered content creation and optimization
+price_sol: 0.015
+price_usd: 3.00
+capabilities:
+  - Blog post writing
+  - SEO optimization
+  - Content strategy
+category: Content
+owner: marketplace
+rating: 4.7
+total_uses: 850
+avg_processing_time: 5.0
+success_rate: 0.92
+icon: ✍️
