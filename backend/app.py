@@ -1,26 +1,28 @@
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 from typing import List, Dict, Any
 import asyncio
 import uvicorn
 import os
 import json
+from pathlib import Path
 
-# Old (causing error)
-# from solana.transaction import Transaction
-# from solana.system_program import transfer, TransferParams
-# from solders.keypair import Keypair
-# from solders.pubkey import Pubkey
-
-# New
-from solana.rpc.async_api import AsyncClient
-from solana.rpc.types import TxOpts
-from solders.transaction import Transaction
-from solders.keypair import Keypair
-from solders.pubkey import Pubkey
-from solders.system_program import TransferParams, transfer
+# Solana imports
+try:
+    from solders.keypair import Keypair
+    from solders.pubkey import Pubkey
+    from solders.system_program import TransferParams, transfer
+    from solders.transaction import Transaction
+    from solana.rpc.async_api import AsyncClient
+    from solana.rpc.commitment import Confirmed
+    SOLANA_ENABLED = True
+except ImportError:
+    print("⚠️ Solana SDK not available - payment features will be disabled")
+    SOLANA_ENABLED = False
 
 # Import our enhanced marketplace with Coral integration
 from agent_marketplace import AgentMarketplace, WorkflowRequest
@@ -31,6 +33,20 @@ app = FastAPI(
     description="Rent specialized AI agents with Solana payments powered by Coral Protocol",
     version="2.0.0"
 )
+
+# -------------------
+# Setup and Configuration
+# -------------------
+STATIC_DIR = Path(__file__).parent / "static"
+TEMPLATES_DIR = Path(__file__).parent / "templates"
+
+# Create directories if they don't exist
+STATIC_DIR.mkdir(exist_ok=True)
+TEMPLATES_DIR.mkdir(exist_ok=True)
+
+# Mount static files and templates
+app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
 
 # -------------------
 # Middleware
@@ -71,6 +87,9 @@ def load_or_create_wallet():
 
 async def send_devnet_payment(sender: Keypair, recipient: str, sol_amount: float):
     """Send a real payment on Solana Devnet"""
+    if not SOLANA_ENABLED:
+        return {"error": "Solana SDK not available"}
+        
     client = AsyncClient("https://api.devnet.solana.com")
     lamports = int(sol_amount * 1e9)  # SOL → lamports
 
@@ -84,8 +103,9 @@ async def send_devnet_payment(sender: Keypair, recipient: str, sol_amount: float
         )
     )
 
-    # Use TxOpts for reliable Devnet confirmation
-    resp = await client.send_transaction(txn, sender, opts=TxOpts(skip_confirmation=False))
+    # Send transaction and wait for confirmation
+    resp = await client.send_transaction(txn, sender)
+    await client.confirm_transaction(resp.value)
     await client.close()
     return resp
 

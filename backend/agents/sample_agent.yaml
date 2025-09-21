@@ -1,0 +1,13 @@
+name: Sample Agent
+id: sample-agent-001
+description: A sample agent demonstrating basic capabilities
+capabilities:
+  - text_analysis
+  - data_processing
+  - task_execution
+metrics:
+  response_time: "< 1s"
+  accuracy: "95%"
+configuration:
+  max_tokens: 1000
+  temperature: 0.7

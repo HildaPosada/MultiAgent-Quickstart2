@@ -1,4 +1,9 @@
-# MultiAgent-Quickstart2
+# 🏪 MultiAgent-Quickstart2
+
+> 🏆 Project submission for the [Internet of Agents Hackathon](https://lablab.ai/event/internet-of-agents)
+
+A **next-generation agent marketplace** that integrates with the **Coral Protocol** and **Solana blockchain**.
+This project demonstrates how specialized AI agents can be discovered, rented, and coordinated in real-time — paving the way for the **Internet of Agents**.
 
 > 🏆 Project submission for the [Internet of Agents Hackathon](https://lablab.ai/event/internet-of-agents) on lablab.ai
 
