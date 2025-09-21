@@ -8,15 +8,19 @@ import uvicorn
 import os
 import json
 
-# Solana Devnet client
-from solana.rpc.types import TxOpts
-from solana.rpc.async_api import AsyncClient
-from solana.transaction import Transaction
-from solana.system_program import transfer, TransferParams
+# Old (causing error)
+# from solana.transaction import Transaction
+# from solana.system_program import transfer, TransferParams
+# from solders.keypair import Keypair
+# from solders.pubkey import Pubkey
 
-# Use solders for keys + pubkeys
+# New
+from solana.rpc.async_api import AsyncClient
+from solana.rpc.types import TxOpts
+from solders.transaction import Transaction
 from solders.keypair import Keypair
 from solders.pubkey import Pubkey
+from solders.system_program import TransferParams, transfer
 
 # Import our enhanced marketplace with Coral integration
 from agent_marketplace import AgentMarketplace, WorkflowRequest
@@ -234,7 +238,16 @@ if __name__ == "__main__":
     os.makedirs("templates", exist_ok=True)
     os.makedirs("static", exist_ok=True)
     print("🌊 Agent Marketplace with Coral Protocol starting...")
-    print("🏪 Available at: http://localhost:8000")
-    print("🔌 Coral Server expected at: http://localhost:5555")
+    print("🏪 Frontend (Vite/React):    http://localhost:8080")
+    print("⚙️  Backend (FastAPI):       http://localhost:8081")
+    print("🔌 Coral Server:             http://localhost:5555")
     print("🎯 Ready for hackathon demo with real Coral integration + WebSockets + Solana Devnet payments!")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8081)
+
+
+
+#Frontend (Vite/React): http://localhost:8080
+
+#Backend (FastAPI): http://localhost:8081
+
+#Coral server: http://localhost:5555
