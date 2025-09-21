@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pydantic
+solders
+solana-py==0.20.2   # last stable with Transaction import
+websockets
+aiohttp
