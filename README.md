@@ -5,7 +5,7 @@
 A **next-generation agent marketplace** that integrates with the **Coral Protocol** and **Solana blockchain**.
 This project demonstrates how specialized AI agents can be discovered, rented, and coordinated in real-time — paving the way for the **Internet of Agents**.
 
-## � Demo
+## 🔍 Demo
 
 * Live Demo: [https://multi-agent-quickstart2.vercel.app/](https://multi-agent-quickstart2.vercel.app/)
 * Demo Video: [Coming Soon]
